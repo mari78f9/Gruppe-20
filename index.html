@@ -12,10 +12,73 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <script src=""></script>
-</body>
+    <div class="menu">
+        <div class="topnav">
+            <a href="#news">News</a>
+            <a href="#news">News</a>
+            <img src="logo/Artboard%2022.svg" class="logo">
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mySlides">
+            <img src="image/slideshow/Artboard%201.svg" style="width:100%">
+        </div>
 
-</html>
+        <div class="mySlides">
+            <img src="image/slideshow/Artboard%202.svg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="image/slideshow/Artboard%203.svg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="image/slideshow/Artboard%204.svg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="image/slideshow/hansenSofa.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <!-- <div class="numbertext">6 / 6</div>-->
+            <img src="image/slideshow/Artboard%206.svg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/Artboard%201.svg" style="width:100%" onclick="currentSlide(1)" alt="Nyheder">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/Artboard%202.svg" style="width:100%" onclick="currentSlide(2)" alt="Nyheder">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/Artboard%203.svg" style="width:100%" onclick="currentSlide(3)" alt="Nyheder">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/Artboard%204.svg" style="width:100%" onclick="currentSlide(4)" alt="Nyheder">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/hansenSofa.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nyheder">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="image/slideshow/Artboard%206.svg" style="width:100%" onclick="currentSlide(6)" alt="Nyheder">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body></html>
