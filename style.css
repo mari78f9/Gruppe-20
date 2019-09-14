@@ -38,6 +38,17 @@ h3 {
 }
 
 /*************SPLASH*****************/
+#splash1 {
+    margin-left: -10px;
+    background-image: url(splash/Artboard_5.svg);
+    height: 86vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 1%;
+    position: relative;
+    margin-top: -65px;
+}
 
 .splash {
     margin: 0 -10px 10px -10px;
