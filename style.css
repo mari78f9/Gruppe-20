@@ -6,6 +6,10 @@ img {
     width: 100%;
 }
 
+button a {
+    color: white;
+}
+
 p,
 h1,
 h2,
