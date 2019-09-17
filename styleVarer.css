@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.streg {
+    border-bottom: solid 2px;
+}
+
 img {
     vertical-align: middle;
     width: 100%;
@@ -25,6 +29,10 @@ h3 {
     font-family: 'Questrial', sans-serif;
 }
 
+button {
+    background-color: white;
+}
+
 /*-----------------------animation-----------------------*/
 
 .hide {
@@ -38,7 +46,7 @@ h3 {
 }
 
 .logo {
-    width: 15%;
+    width: 10%;
 }
 
 .topnav {
@@ -56,8 +64,8 @@ h3 {
     font-size: 2rem;
 }
 
-.topnav:hover {
-    border-bottom: 2px;
+.menuBottom:hover {
+    border-bottom: solid 2px;
 }
 
 
@@ -106,6 +114,7 @@ h3 {
 
 .infobox_content h2 {
     margin: 0.8em 0;
+    text-align: center;
 }
 
 nav {
@@ -153,7 +162,6 @@ nav p {
 .data {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    cursor: pointer;
     column-count: 4;
     column-gap: 1em;
     margin: 1.5em;
@@ -172,6 +180,7 @@ article {
     box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
     justify-self: center;
+    cursor: pointer;
 }
 
 article img {
@@ -258,6 +267,21 @@ h3 {
     font-weight: 500;
 }
 
+.luk {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: black;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 20vw;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-family: 'Questrial', sans-serif;
+    position: relative;
+}
 
 /*-------------footer------------*/
 

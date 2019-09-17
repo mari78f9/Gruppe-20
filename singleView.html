@@ -14,11 +14,11 @@
 
     <div class="menu">
         <div class="topnav">
-            <a href="varer.html">Varer</a>
-            <a href="">Nyheder</a>
-            <img src="logo/Artboard%2022.svg" class="logo">
-            <a href="">Om</a>
-            <a href="">Kontakt</a>
+            <a href="index.html" class="menuBottom">Forside</a>
+            <a href="nyheder.html" class="menuBottom">Nyheder</a>
+            <a href="index.html"><img src="logo/Artboard%2022.svg" class="logo"></a>
+            <a href="varer.html" class="menuBottom">Varer</a>
+            <a href="om.html" class="menuBottom">Om</a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
     <aside class="infowrapper2">
         <div class="infobox2">
             <div class="infobox_content2">
-                <p>Hvis du ønsker at købe en af vores skønne varer, kan du skrive en mail til os under "Kontakt".</p>
+                <p>Vi håber, at du bliver lige så forelsket i disse skønne ting, som vi er blevet! Vores oplysninger kan findes i bunden af siden, hvis du ønsker at investere i disse smukke fund.</p>
             </div>
         </div>
     </aside>
@@ -44,6 +44,7 @@
                     <h2 class="navn"></h2>
                     <p class="lang"></p>
                     <p class="pris"></p>
+                    <button class="luk">Tilbage</button>
                 </div>
             </article>
         </section>
@@ -60,7 +61,7 @@
     </div>
 
     <footer>
-        <div id="wrapper">
+        <div id="footer_wrapper">
             <div class="info">
                 <p>Adresse:</p>
                 <p>Grønnegade 97</p>
@@ -94,10 +95,10 @@
                     document.querySelector(".pris").textContent = vare.gsx$pris.$t;
                 };
             })
+            document.querySelector(".luk").addEventListener("click", () => {
+                history.back();
+            });
         }
-
     </script>
 
-</body>
-
-</html>
+</body></html>
