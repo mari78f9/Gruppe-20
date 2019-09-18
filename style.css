@@ -6,10 +6,6 @@ img {
     width: 100%;
 }
 
-button a {
-    color: white;
-}
-
 p,
 h1,
 h2,
@@ -17,14 +13,15 @@ h3 {
     font-family: 'Questrial', sans-serif;
 }
 
-/********ANIMATIONER*******/
 
+/***********MENU**************/
+
+
+/*Sætter streg under det gældende menu-punkt*/
 .streg {
     border-bottom: solid 2px;
 }
 
-
-/***********MENU**************/
 .menu {
     text-align: center;
 }
@@ -74,6 +71,7 @@ h3 {
 }
 
 /************SLIDESHOW**************/
+/*-----------------LÅNT KODE-------------*/
 
 * {
     box-sizing: border-box;
@@ -125,15 +123,6 @@ img {
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
 }
 
 /* Container for image text */
@@ -256,6 +245,10 @@ img {
 .os2 {
     flex-basis: 510px;
 
+}
+
+button a {
+    color: white;
 }
 
 /***********NYHEDER*************/
