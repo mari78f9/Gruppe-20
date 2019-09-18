@@ -4,9 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nexthand</title>
+    <title>NEXTHAND</title>
+
+    <!--CSS'en-->
     <link rel="stylesheet" href="styleVarer.css">
+
+    <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+
+    <!--Favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -18,6 +24,7 @@
 
 <body>
 
+    <!--Navigationsmenuen-->
     <div class="menu">
         <div class="topnav">
             <a href="index.html" class="menuBottom">Forside</a>
@@ -28,8 +35,10 @@
         </div>
     </div>
 
+    <!--Splashbillede-->
     <div id="splash"></div>
 
+    <!--Infoboks, der giver kort info om varersiden-->
     <aside class="infowrapper">
         <div class="infobox">
             <div class="infobox_content">
@@ -39,6 +48,7 @@
         </div>
     </aside>
 
+    <!--Filterknapperne der inddeler de forskellige møbler-->
     <nav class="filter_alle">
         <button class="filter valgt" data-kategori="alle">Alle</button>
     </nav>
@@ -56,6 +66,7 @@
             <button class="filter" data-kategori="dekoration">Dekoration</button>
         </div>
     </nav>
+    <!--Filterknapperne der inddeler de forskellige prisser-->
     <nav>
         <div class="filter_prisklasse hide">
             <br>
@@ -70,9 +81,10 @@
     <br>
     <br>
 
+    <!--"Modtager tagget". Tom liste, hvor møblerne dynamisk bliver indlæst-->
     <section class="data"></section>
 
-
+    <!--Specifik liste, der henter information fra arrayet/Google Sheet-->
     <template>
         <article>
             <img src="" alt="">
@@ -82,7 +94,7 @@
         </article>
     </template>
 
-
+    <!--Footer med info på "virksomheden"-->
     <footer>
         <div id="wrapper">
             <div class="info">
@@ -100,14 +112,21 @@
 
 
     <script>
+        //Tomt array, hvor møblerne bliver hentet fra json/Google Sheet
         let alleVarer = [];
-        let filterKategori = "alle";
+
+        //"Alle" i filterfunktionen skal vises som udgangspunkt.
+        let filterKategori = "alle"; //
         let filterPrisklasse = "alle";
+
         const container = document.querySelector(".data");
         const templateContainer = document.querySelector("template");
 
+        //Programmet går i gang når DOM er loadet færdig
         document.addEventListener("DOMContentLoaded", hentJson);
 
+        //json-filen/Google Sheet læses og Google Sheet informationerne bliver lagt i alleVarer og visVarer() bliver herefter kaldt.
+        //Hvis der bliver klikket på filterknapperne, bliver addEventListenersToButtons() kaldt.
         async function hentJson() {
             let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1mMZ6UI2-PXD05ApvpFvcxDUxDIGkskqlYwOtrnWw4FU/od6/public/values?alt=json");
             alleVarer = await jsonData.json();
@@ -115,9 +134,12 @@
             addEventListenersToButtons();
         }
 
+
         function visVarer() {
+            //containeren bliver tømt eller nulstillet.
             container.innerHTML = "";
 
+            //Der udvælges en enkelt specifik vare fra arrayet, og et article tag bliver udfyldt. Herefter tilføjes de til .data, hvis de passer på filteret.
             alleVarer.feed.entry.forEach(vare => {
                 if ((filterKategori == "alle" || filterKategori == vare.gsx$kategori.$t) && (filterPrisklasse == "alle" || filterPrisklasse == vare.gsx$prisklasse.$t)) {
                     const klon = templateContainer.cloneNode(true).content;
@@ -134,8 +156,9 @@
             })
         }
 
-
         function addEventListenersToButtons() {
+            //Hvis varer knapperne ".filter" bliver trykket på, bliver filtrering () kaldt.
+            //Hvis pris knapperne ".filter-prisklasse" bliver trykket på, bliver filtreringPrisklasse () kaldt.
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
@@ -145,9 +168,12 @@
         }
 
         function filtrering() {
+            //Får pris filtreringen til at komme frem/fjerne "hide" class'en.
             document.querySelector(".filter_prisklasse").classList.remove("hide");
 
             filterKategori = this.dataset.kategori;
+            //Hvis filteret er "alle", så skal ".valgt" class'en være tilføjet til alle.
+            //Hvis filteret er et på sorteringsfilteret ".filter", bliver ".valgt" fjernet fra "alle" og sat på ".filter" istedet.
             if (filterKategori == "alle") {
                 filterPrisklasse = "alle";
                 document.querySelectorAll(".filter-prisklasse").forEach(elm => {
@@ -158,11 +184,14 @@
                 elm.classList.remove("valgt");
             });
             this.classList.add("valgt");
+
+            //visVarer () kaldes.
             visVarer();
         }
 
 
         function filtreringPrisklasse() {
+            //Filteret bliver sorteret sammen med ".filter", hvor ".valgt" bliver tilføjet/fjernet alt efter om, det er blevet klikket på. Hvis filteret er "alle", så skal ".valgt" class'en være tilføjet til alle.
             filterPrisklasse = this.dataset.prisklasse;
             let valgtKategori = document.querySelector(".valgt").textContent;
             document.querySelectorAll(".filter-prisklasse").forEach(elm => {

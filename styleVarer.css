@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/*Laver streg under menuen a tags*/
 .streg {
     border-bottom: solid 2px;
 }
@@ -35,6 +36,7 @@ button {
 
 /*-----------------------animation-----------------------*/
 
+/*Gemmer pris filteret*/
 .hide {
     visibility: hidden;
 }
@@ -45,6 +47,7 @@ button {
     text-align: center;
 }
 
+/*giver logoet en hvis størrelse*/
 .logo {
     width: 10%;
 }
@@ -64,6 +67,7 @@ button {
     font-size: 2rem;
 }
 
+/*Giver streg under menuens a tags, når musen er på*/
 .menuBottom:hover {
     border-bottom: solid 2px;
 }
@@ -71,6 +75,7 @@ button {
 
 /*-----------------------splash-----------------------*/
 
+/*Tilføjet et billede til #splash, og indstiller det, så man kan se billedet*/
 #splash {
     margin: 0;
     background-image: url(splash/artboard_10.jpg);
@@ -81,6 +86,7 @@ button {
     position: relative;
 }
 
+/*Splash billedet på singleView*/
 #splash_single {
     margin: 0;
     background-image: url(splash/artboard_11.jpg);
@@ -94,6 +100,7 @@ button {
 
 /*-----------------------filtersiden-----------------------*/
 
+/*Boxen under splash billedet, der giver en kort beskrivelse af siden*/
 .infowrapper {
     display: flex;
     justify-content: center;
@@ -117,6 +124,7 @@ button {
     text-align: center;
 }
 
+/*Indstillingen af filterknapperne*/
 nav {
     display: flex;
     flex-direction: column;
@@ -159,6 +167,7 @@ nav p {
     margin: 0 0 2vw;
 }
 
+/*Inddelere arrayet i forskellige kasser/grid*/
 .data {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -170,6 +179,7 @@ nav p {
     font-size: .85em;
 }
 
+/*Styler den enkelte vares box*/
 article {
     display: inline-block;
     background: #fff;
@@ -187,14 +197,17 @@ article img {
     max-height: 40vh;
 }
 
+/*Giver en farve til de ulige numre i grid systemet*/
 article:nth-last-child(odd) {
     background-color: #c8e4f433;
 }
 
+/*Giver en farve til de lige numre i grid systemet*/
 article:nth-last-child(even) {
     background-color: #5f702217;
 }
 
+/*Giver en farve, når man har klikket på filterknapperne*/
 .valgt {
     color: #8C6239;
 }
@@ -202,6 +215,7 @@ article:nth-last-child(even) {
 
 /*-------------singleView-------------*/
 
+/*Boxen under splash billedet, der giver en kort beskrivelse af siden*/
 .infowrapper2 {
     display: flex;
     justify-content: center;
@@ -220,7 +234,7 @@ article:nth-last-child(even) {
     background-color: white;
 }
 
-
+/*Den enkelte vare på singleView siden*/
 #single {
     display: flex;
     justify-content: center;
@@ -233,14 +247,17 @@ article:nth-last-child(even) {
     margin: 2em;
 }
 
+/*Fjerner farven, der er blevet tilføjet fra "varer" siden*/
 .enkeltVare:nth-last-child(odd) {
     background-color: white;
 }
 
+/*Fjerner farven, der er blevet tilføjet fra "varer" siden*/
 .enkeltVare:nth-last-child(even) {
     background-color: white;
 }
 
+/*Fjerner stylingen, der er tilføjet fra "varer" siden*/
 .enkeltVare {
     display: flex;
     background-color: none;
@@ -251,6 +268,7 @@ article:nth-last-child(even) {
     box-shadow: none;
 }
 
+/*Nederste boxe på siden, der viser indhold fra de andre kategorier*/
 .tilbage_wrapper {
     display: flex;
     margin: 2vw;
@@ -267,6 +285,7 @@ h3 {
     font-weight: 500;
 }
 
+/*Tilbage knappen*/
 .luk {
     display: inline-block;
     border-radius: 4px;

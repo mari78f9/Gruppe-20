@@ -4,20 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nexthand</title>
+    <title>NEXTHAND</title>
     <link rel="stylesheet" href="styleVarer.css">
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+
+    <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
     <meta name="robots" content="noindex">
 </head>
 
 <body>
 
+    <!--Menuen med links til de andre sider-->
     <div class="menu">
         <div class="topnav">
             <a href="index.html" class="menuBottom">Forside</a>
@@ -28,8 +32,10 @@
         </div>
     </div>
 
+    <!--Splashbilledet-->
     <div id="splash_single"></div>
 
+    <!--Infobox der fortæller lidt om siden-->
     <aside class="infowrapper2">
         <div class="infobox2">
             <div class="infobox_content2">
@@ -39,7 +45,7 @@
     </aside>
 
 
-
+    <!--Indholdet fra den enkelte/udvaldte vare vises i en main-->
     <main id="single">
         <section class="indhold">
             <article class="enkeltVare">
@@ -60,6 +66,7 @@
         <h3>Hvis du ønsker at se flere varer:</h3>
     </div>
 
+    <!--Billeder der viser indhold fra de andre kategorier + linker tilbage til "varer" siden-->
     <div class="tilbage_wrapper">
         <a class="tilbage_content" href="varer.html"><img src="nexthand_pics/babytaeppe.jpg" alt="taeppe"></a>
         <a class="tilbage_content" href="varer.html"><img src="nexthand_pics/ashelf.jpg" alt="hylde"></a>
@@ -82,25 +89,32 @@
     </footer>
 
     <script>
+        //vise den aktuelle sides url
         let urlParams = new URLSearchParams(window.location.search);
+        //Henter specifik "id" fra
         let id = urlParams.get("id");
         let varer;
         document.addEventListener("DOMContentLoaded", hentJson);
         async function hentJson() {
+
+            //Data hentes fra Google Sheet dokument.
             const jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1mMZ6UI2-PXD05ApvpFvcxDUxDIGkskqlYwOtrnWw4FU/od6/public/values?alt=json");
             varer = await jsonData.json();
             visVare();
         }
 
         function visVare() {
+            //Der udvælges en enkelt specifik vare fra arrayet, og hvis det matcher med varens "id", bliver et article tag udfyldt.
             varer.feed.entry.forEach((vare) => {
                 if (vare.gsx$id.$t == id) {
+                    //Specifik data hentes fra Google Sheet dokumentet.
                     document.querySelector(".billede").src = `nexthand_pics/${vare.gsx$billede.$t}.jpg`;
                     document.querySelector(".navn").textContent = vare.gsx$navn.$t;
                     document.querySelector(".lang").textContent = vare.gsx$lang.$t;
                     document.querySelector(".pris").textContent = vare.gsx$pris.$t;
                 };
             })
+            //Når der klikkes på .luk/tilbage knappen, går man et skridt tilbage i historiken/går tilbage på siden.
             document.querySelector(".luk").addEventListener("click", () => {
                 history.back();
             });
